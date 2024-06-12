@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-import json
 
 # 设置Chrome浏览器的选项
 options = webdriver.ChromeOptions()
@@ -25,6 +24,8 @@ driver.get(url)
 # 打印userInfo 确认成功
 script = "return window.localStorage.getItem('userInfo');"
 value = driver.execute_script(script)
+print(value)
+
 
 # 获取所有DOM元素
 time.sleep(2)
@@ -41,8 +42,8 @@ def search():
             rr[0].click()
     except Exception as e:
         search()
-    
 search()
+
 # 关闭webdriver
-# driver.quit()
+driver.quit()
 
