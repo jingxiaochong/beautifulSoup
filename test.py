@@ -5,6 +5,7 @@ import time
 
 # 设置Chrome浏览器的选项
 options = webdriver.ChromeOptions()
+options.add_argument('--no-sandbox')
 options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
 options.add_argument('--disable-gpu')  # 适用于无头模式
 
@@ -29,7 +30,7 @@ value = driver.execute_script(script)
 print(value)
 
 
-time.sleep(2)
+time.sleep(10)
 pay_btn = driver.find_elements(By.CLASS_NAME, "payBtn")[0]
 
 # 定义确认方法

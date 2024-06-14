@@ -46,7 +46,7 @@ time.sleep(1)
 confirm_button = driver.find_element(By.XPATH, '//uni-view[contains(text(), "确定")]')
 confirm_button.click()
 
-time.sleep(2)
+time.sleep(10)
 pay_btn = driver.find_elements(By.CLASS_NAME, "payBtn")[0]
 
 # 定义确认方法
