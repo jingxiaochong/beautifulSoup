@@ -13,7 +13,7 @@ options.add_argument('--disable-gpu')  # 适用于无头模式
 driver = webdriver.Chrome(options=options)
 
 # 打开指定的URL
-url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=231813&ticketId=ffb78b021699e2d1935e45332fb509e2&ticketNum=1'
+url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=218672&ticketId=f050f33487276138fe88c5db01fcd339&ticketNum=1'
 driver.get(url)
 # 等待10s加载完成
 time.sleep(10)
@@ -49,7 +49,7 @@ try:
         minutes = current_time.split(':')[1]
         hours = current_time.split(':')[0]
         print(f"{hours}时{minutes}分{seconds}秒")
-        if minutes == '20' and seconds == '0':
+        if minutes == '26' and seconds == '0':
             start()
             break
         time.sleep(0.001)  # 每0.001秒获取一次

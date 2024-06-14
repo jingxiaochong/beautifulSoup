@@ -5,8 +5,10 @@ import time
 
 # 设置Chrome浏览器的选项
 options = webdriver.ChromeOptions()
-# options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
-# options.add_argument('--disable-gpu')  # 适用于无头模式
+options.add_argument('--no-sandbox')
+options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
+options.add_argument("--window-size=1920,1080")
+options.add_argument('--disable-gpu')  # 适用于无头模式
 
 # 初始化webdriver
 driver = webdriver.Chrome(options=options)
@@ -65,7 +67,7 @@ try:
         minutes = current_time.split(':')[1]
         hours = current_time.split(':')[0]
         print(f"{hours}时{minutes}分{seconds}秒")
-        if minutes == '0' and seconds == '0':
+        if minutes == '40' and seconds == '10':
             start()
             break
         time.sleep(0.001)  # 每0.001秒获取一次
