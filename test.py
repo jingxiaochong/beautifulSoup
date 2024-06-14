@@ -19,8 +19,7 @@ time.sleep(10)
 
 # 注入token
 key = 'userInfo'
-# 真武
-strs = '{"type":"object","data":{"st_flpv":"bj2e455xo3xjxczd8ny1cozh2s5p3skf","userId":15654053,"userType":1,"tuType":0,"userName":"Fan2156540530","avatar":"https://s2.showstart.com/img/2024/0412/09/30/3ef4e1f431884ee6b4896dcf1a41407a_200_200_16557.0x0.png","loginTime":1718286173554,"sign":"206c949bb78ec48207b620c16c9f0d70","ticketWalletServiceStatus":2,"tel":"18546660142","expireTime":1720878173556,"isChoose":1,"areaCode":"86_CN","uniqueCode":"61faa60f69e305ff3f1d7da3cb8a78cd","imAppId":1400331755,"isRealName":1,"isAdmin":0,"userLevel":3,"memberExpireTime":0,"idtoken":"5947bc265aa9ce26666aff91b8f33e5a"}}'
+strs = '{"type":"object","data":{"st_flpv":"70qikoz9l1wawnbulxw77jbkehd9mktf","userId":9256095,"userType":1,"tuType":0,"userName":"蚍蜉渡海_","avatar":"https://s2.showstart.com/img/2024/0412/09/30/d5398f9b27374011b06dd4b77baa2b88_200_200_13964.0x0.png","loginTime":1718087319965,"sign":"cba36e01b753e18aeae8a723154a1e26","ticketWalletServiceStatus":2,"tel":"15539502921","expireTime":1720679319967,"isChoose":1,"areaCode":"86_CN","uniqueCode":"56cf13c5c37d4fa68c0e4f696e4ed592","imAppId":1400331755,"isRealName":2,"isAdmin":0,"userLevel":13,"memberExpireTime":0,"idtoken":"87a79e22fb8227886667f6cb525123ae","id":9256095,"name":"蚍蜉渡海_","isCollect":0,"creditLevel":0,"creditLevelExp":[20,131,420,1634,4257]}}'
 driver.execute_script(f"window.localStorage.setItem('{key}', '{strs}');")
 driver.get(url)
 
@@ -49,7 +48,7 @@ try:
         minutes = current_time.split(':')[1]
         hours = current_time.split(':')[0]
         print(f"{hours}时{minutes}分{seconds}秒")
-        if minutes == '20' and seconds == '0':
+        if minutes == '30' and seconds == '0':
             start()
             break
         time.sleep(0.001)  # 每0.001秒获取一次
