@@ -49,6 +49,8 @@ pay_btn = driver.find_elements(By.CLASS_NAME, "payBtn")[0]
 def start():
     while True:
       pay_btn.click()
+      print('点击了')
+      print(driver.execute_script(get_time_script))
       time.sleep(2)
 
 # 获取浏览器当前时间的 JavaScript 脚本

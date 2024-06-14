@@ -55,6 +55,8 @@ pay_btn = driver.find_elements(By.CLASS_NAME, "payBtn")[0]
 def start():
     while True:
       pay_btn.click()
+      print('点击了')
+      print(driver.execute_script(get_time_script))
       time.sleep(2)
 
 # 获取浏览器当前时间的 JavaScript 脚本
@@ -67,7 +69,7 @@ try:
         minutes = current_time.split(':')[1]
         hours = current_time.split(':')[0]
         print(f"{hours}时{minutes}分{seconds}秒")
-        if minutes == '0':
+        if minutes == '9' and seconds == '10':
             start()
             break
         time.sleep(0.001)  # 每0.001秒获取一次
