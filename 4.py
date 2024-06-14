@@ -20,8 +20,8 @@ time.sleep(10)
 
 # 注入token
 key = 'userInfo'
-# 小武1
-strs = '{"type":"object","data":{"st_flpv":"t8c3hsulwe95m8z488tw2811bsmwvy8a","userId":17632284,"userType":1,"tuType":0,"userName":"Fan6176322840","avatar":"https://s2.showstart.com/img/2024/0412/09/30/799f76d40dff4f0288af5a244e68309d_200_200_19735.0x0.png","loginTime":1718330161730,"sign":"f0bd7bc4f51c92ac23db03215eb9bb27","ticketWalletServiceStatus":0,"tel":"17513319289","expireTime":1720922161732,"isChoose":0,"areaCode":"86_CN","uniqueCode":"067a1769a3ca6d09fd85902ff196a028","imAppId":1400331755,"isRealName":0,"isAdmin":0,"memberExpireTime":0,"idtoken":"cf0df6dec53e3559666bab65e94589c2"}}'
+# 王桂芳
+strs = '{"type":"object","data":{"st_flpv":"1f11c35qsr7yz79qq202mhxkj7i1bxuz","userId":15657891,"userType":1,"tuType":0,"userName":"Fan2156578910","avatar":"https://s2.showstart.com/img/2024/0409/09/30/de2d0d57f4d0427ab447dee78fc47306_800_800_661402.0x0.jpg","loginTime":1718285129077,"sign":"bebbf4c95dd859db2bfc89006c0cef1f","ticketWalletServiceStatus":2,"tel":"18553365720","expireTime":1720877129079,"isChoose":1,"areaCode":"86_CN","uniqueCode":"55dc974b99e098560316e0604427379f","imAppId":1400331755,"isRealName":1,"isAdmin":0,"userLevel":3,"memberExpireTime":0,"idtoken":"aaa3a08f14a8ad0e666afb7d7e7d004c","id":15657891,"name":"Fan2156578910","isCollect":0,"creditLevel":0,"creditLevelExp":[20,131,420,1634,4257]}}'
 driver.execute_script(f"window.localStorage.setItem('{key}', '{strs}');")
 driver.get(url)
 
