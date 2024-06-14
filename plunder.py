@@ -5,17 +5,16 @@ import time
 
 # 设置Chrome浏览器的选项
 options = webdriver.ChromeOptions()
-options.add_argument('--no-sandbox')
-options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
-options.add_argument("--window-size=1920,1080")
-options.add_argument('--disable-gpu')  # 适用于无头模式
+# options.add_argument('--no-sandbox')
+# options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
+# options.add_argument("--window-size=1920,1080")
+# options.add_argument('--disable-gpu')  # 适用于无头模式
 
 # 初始化webdriver
 driver = webdriver.Chrome(options=options)
 
 # 打开指定的URL
-url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=231185&ticketId=33f1564ba5d8cb7b4b3fad202de6df84&ticketNum=1'
-# url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=231189&ticketId=f2543a9ee746e94a481b30956a0a4544&ticketNum=1'
+url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=231189&ticketId=f2543a9ee746e94a481b30956a0a4544&ticketNum=1'
 driver.get(url)
 # 等待10s加载完成
 time.sleep(10)
