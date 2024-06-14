@@ -61,7 +61,7 @@ try:
         minutes = current_time.split(':')[1]
         hours = current_time.split(':')[0]
         print(f"{hours}时{minutes}分{seconds}秒")
-        if minutes == '0' and seconds == '0':
+        if minutes == '0':
             start()
             break
         time.sleep(0.001)  # 每0.001秒获取一次
