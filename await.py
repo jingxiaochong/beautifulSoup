@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+pip install requests
 import time
 
 # 设置Chrome浏览器的选项
@@ -11,7 +12,7 @@ options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
 
 # 打开指定的URL
-url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=224240&ticketId=d20e7866d079ed30353d1ede92f531e1&ticketNum=1'
+url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=224243&ticketId=eed9589e63982d86e15b01678865520f&ticketNum=1'
 driver.get(url)
 time.sleep(2)
 
@@ -28,7 +29,7 @@ print(value)
 
 
 # 获取所有DOM元素
-time.sleep(2)
+time.sleep(10)
 def search():
     try:
         pay_btn = driver.find_elements(By.CLASS_NAME, "payBtn")
@@ -38,12 +39,20 @@ def search():
             time.sleep(3)
             search()
         else:
-            rr = driver.find_elements(By.CLASS_NAME, "rr")
-            rr[0].click()
+            # 打开观演人
+            driver.find_elements(By.CLASS_NAME, "rr")[0].click()
+            time.sleep(1)
+            # 选择观演人
+            driver.find_elements(By.CLASS_NAME, "uni-checkbox-input")[0].click()
+            time.sleep(1)
+            # 点击确定按钮
+            confirm_button = driver.find_element(By.XPATH, '//uni-view[contains(text(), "确定")]')
+            confirm_button.click()
+            print('选择观演人')
+            time.sleep(3)
+            pay_btn.click()
     except Exception as e:
         search()
 search()
 
-# 关闭webdriver
-driver.quit()
 

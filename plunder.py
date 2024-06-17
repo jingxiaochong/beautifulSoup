@@ -67,7 +67,7 @@ try:
         if minutes == '0' and seconds == '0':
             start()
             break
-        time.sleep(0.001)  # 每0.001秒获取一次
+        time.sleep(0.1)  # 每0.001秒获取一次
 finally:
     current_time = driver.execute_script(get_time_script)
 
