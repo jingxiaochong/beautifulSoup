@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-pip install requests
 import time
+import requests
 
 # 设置Chrome浏览器的选项
 options = webdriver.ChromeOptions()
@@ -12,7 +12,8 @@ options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
 
 # 打开指定的URL
-url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=224243&ticketId=eed9589e63982d86e15b01678865520f&ticketNum=1'
+url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=222729&ticketId=63834aeb922c531354419c0467d72bdb&ticketNum=1'
+# url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=224243&ticketId=eed9589e63982d86e15b01678865520f&ticketNum=1'
 driver.get(url)
 time.sleep(2)
 
@@ -29,7 +30,7 @@ print(value)
 
 
 # 获取所有DOM元素
-time.sleep(10)
+time.sleep(5)
 def search():
     try:
         pay_btn = driver.find_elements(By.CLASS_NAME, "payBtn")
@@ -39,20 +40,29 @@ def search():
             time.sleep(3)
             search()
         else:
-            # 打开观演人
-            driver.find_elements(By.CLASS_NAME, "rr")[0].click()
-            time.sleep(1)
-            # 选择观演人
-            driver.find_elements(By.CLASS_NAME, "uni-checkbox-input")[0].click()
-            time.sleep(1)
-            # 点击确定按钮
-            confirm_button = driver.find_element(By.XPATH, '//uni-view[contains(text(), "确定")]')
-            confirm_button.click()
-            print('选择观演人')
-            time.sleep(3)
-            pay_btn.click()
+            # # 打开观演人
+            # driver.find_elements(By.CLASS_NAME, "rr")[0].click()
+            # time.sleep(1)
+            # # 选择观演人
+            # driver.find_elements(By.CLASS_NAME, "uni-checkbox-input")[0].click()
+            # time.sleep(1)
+            # # 点击确定按钮
+            # confirm_button = driver.find_element(By.XPATH, '//uni-view[contains(text(), "确定")]')
+            # confirm_button.click()
+            # print('选择观演人')
+            # time.sleep(3)
+            print('可以下单')
+            # 点击下单
+            pay_btn[0].click()
+            payload = {'text':'有余票！，请立即支付'}
+            response = requests.post('http://localhost:4397/postMsg?456465546',data=payload,headers={})
+            # 点击支付
+            time.sleep(2)
+            driver.find_elements(By.CLASS_NAME, "alipay")[0].click()
+            time.sleep(10)
     except Exception as e:
-        search()
+        # search()
+        print('结束')
 search()
 
 
