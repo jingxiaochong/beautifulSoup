@@ -5,8 +5,10 @@ import requests
 response = requests.post('http://116.62.122.121:4397/postMsg',data={'text':'aaaa'},headers={})
 # 设置Chrome浏览器的选项
 options = webdriver.ChromeOptions()
-# options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
-# options.add_argument('--disable-gpu')  # 适用于无头模式
+options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
+options.add_argument('--disable-gpu')  # 适用于无头模式
+options.add_argument("--window-size=1920,1080")
+options.add_argument('--no-sandbox')
 
 # 初始化webdriver
 driver = webdriver.Chrome(options=options)
