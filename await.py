@@ -11,15 +11,15 @@ options = webdriver.ChromeOptions()
 # 初始化webdriver
 driver = webdriver.Chrome(options=options)
 
-# 打开指定的URL
-url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=222729&ticketId=63834aeb922c531354419c0467d72bdb&ticketNum=1'
-# url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=224243&ticketId=eed9589e63982d86e15b01678865520f&ticketNum=1'
+# 打开指定的URL 南昌
+url = 'https://wap.showstart.com/pages/order/activity/confirm/confirm?sequence=224243&ticketId=eed9589e63982d86e15b01678865520f&ticketNum=1'
 driver.get(url)
 time.sleep(2)
 
 # 注入token
 key = 'userInfo'
-strs = '{"type":"object","data":{"st_flpv":"70qikoz9l1wawnbulxw77jbkehd9mktf","userId":9256095,"userType":1,"tuType":0,"userName":"蚍蜉渡海_","avatar":"https://s2.showstart.com/img/2024/0412/09/30/d5398f9b27374011b06dd4b77baa2b88_200_200_13964.0x0.png","loginTime":1718087319965,"sign":"cba36e01b753e18aeae8a723154a1e26","ticketWalletServiceStatus":2,"tel":"15539502921","expireTime":1720679319967,"isChoose":1,"areaCode":"86_CN","uniqueCode":"56cf13c5c37d4fa68c0e4f696e4ed592","imAppId":1400331755,"isRealName":2,"isAdmin":0,"userLevel":13,"memberExpireTime":0,"idtoken":"87a79e22fb8227886667f6cb525123ae","id":9256095,"name":"蚍蜉渡海_","isCollect":0,"creditLevel":0,"creditLevelExp":[20,131,420,1634,4257]}}'
+# zyp
+strs = '{"type":"object","data":{"st_flpv":"4hzgsxjbn8un7k00mwm609ykc76hu6nq","userId":9261885,"userType":1,"tuType":0,"userName":"紫玉天青","avatar":"https://s2.showstart.com/img/2024/0412/09/30/d5398f9b27374011b06dd4b77baa2b88_200_200_13964.0x0.png","loginTime":1718677895276,"sign":"66a2e864b8cea6dc8d987d58152866c7","ticketWalletServiceStatus":2,"tel":"17854251778","expireTime":1721269895278,"isChoose":1,"areaCode":"86_CN","uniqueCode":"605cc6db07f3a8a75f5d3f74446c7538","imAppId":1400331755,"isRealName":2,"isAdmin":0,"userLevel":13,"memberExpireTime":0,"idtoken":"e024d61d34d114186670f9bbde5e5cac","id":9261885,"name":"紫玉天青","isCollect":0,"creditLevel":0,"creditLevelExp":[20,131,420,1634,4257]}}'
 driver.execute_script(f"window.localStorage.setItem('{key}', '{strs}');")
 driver.get(url)
 
@@ -40,22 +40,22 @@ def search():
             time.sleep(3)
             search()
         else:
-            # # 打开观演人
-            # driver.find_elements(By.CLASS_NAME, "rr")[0].click()
-            # time.sleep(1)
-            # # 选择观演人
-            # driver.find_elements(By.CLASS_NAME, "uni-checkbox-input")[0].click()
-            # time.sleep(1)
-            # # 点击确定按钮
-            # confirm_button = driver.find_element(By.XPATH, '//uni-view[contains(text(), "确定")]')
-            # confirm_button.click()
-            # print('选择观演人')
-            # time.sleep(3)
+            # 打开观演人
+            driver.find_elements(By.CLASS_NAME, "rr")[0].click()
+            time.sleep(1)
+            # 选择观演人
+            driver.find_elements(By.CLASS_NAME, "uni-checkbox-input")[0].click()
+            time.sleep(1)
+            # 点击确定按钮
+            confirm_button = driver.find_element(By.XPATH, '//uni-view[contains(text(), "确定")]')
+            confirm_button.click()
+            print('选择观演人')
+            time.sleep(2)
             print('可以下单')
             # 点击下单
             pay_btn[0].click()
-            payload = {'text':'有余票！，请立即支付'}
-            response = requests.post('http://localhost:4397/postMsg?456465546',data=payload,headers={})
+            payload = {'text':'有余票！请立即支付！账号紫玉天青'}
+            response = requests.post('http://116.62.122.121:4397/postMsg',data=payload,headers={})
             # 点击支付
             time.sleep(2)
             driver.find_elements(By.CLASS_NAME, "alipay")[0].click()
