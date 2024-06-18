@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import requests
-
+response = requests.post('http://116.62.122.121:4397/postMsg',data={'text':'aaaa'},headers={})
 # 设置Chrome浏览器的选项
 options = webdriver.ChromeOptions()
 # options.add_argument('--headless')  # 如果不需要浏览器界面，可启用无头模式
